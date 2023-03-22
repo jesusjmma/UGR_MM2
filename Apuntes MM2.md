@@ -152,7 +152,7 @@ $$\frac{d}{dx}\left[\frac{y'(x)}{\sqrt{1+(y'(x))^2}}\right] = 0,\ \ \ \forall x 
 
 Existe cierto $c_1\in\mathbb{R}$ tal que $r'(x) = c_1 \sqrt{1+(y'(x))^2}$. Despejamos $y'(x)$._
 
-$$(y'(x))^2 = c_1^2 (1+(y'(x))^2 \Rightarrow (y'(x))^2 = \frac{c_1^2}{1-c_1^2} \in \mathbb{R}\ \ \ (\textup{Necesariamente}\ c_1 \neq \plusmn 1)$$
+$$(y'(x))^2 = c_1^2 (1+(y'(x))^2 \Rightarrow (y'(x))^2 = \frac{c_1^2}{1-c_1^2} \in \mathbb{R}\ \ \ (\textup{Necesariamente}\ c_1 \neq \pm 1)$$
 
 Existe cierto $c_2 \in \mathbb{R}$ tal que $y'(x)=c_2\ \ \forall x \in I$. Entonces $y(x)=c_2x+c_3$, para ciertos $c_2,c_3 \in \mathbb{R}$.
 
