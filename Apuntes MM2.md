@@ -226,7 +226,7 @@ Podemos poner también $y:[x_0,x_1]\rightarrow\mathbb{R}^N$ como, por ejemplo, $
 
 $$F(x,y,y')=F(x,(y_1(x),y_2(x)),(y'_1(x),y'_2(x)))$$
 
- $y_\varepsilon(x)=y(x)+\varepsilon\varphi(x)=(y_1(x)+\varepsilon\varphi_1(x),y_2(x)+\varepsilon\varphi_2(x))$, con $\varphi(x)=(\varphi_1(x),\varphi_2(x))$
+ $y_\varepsilon(x)=y(x)+\varepsilon\varphi(x)=(y_1(x)+\varepsilon\varphi_1(x),y_2(x)+\varepsilon\varphi_2(x))$, con $\varphi(x)=(\varphi_1(x),\varphi_2(x))$.
 
  $\frac{d}{d\varepsilon}\int_{x_0}^{x_1}F(x,y_\varepsilon,y'_\varepsilon)\ dx = \int_{x_0}^{x_1}F_{y_1}(x,y_\varepsilon,y'_\varepsilon)\varphi_1(x) + F_{y_2}(x,y_\varepsilon,y'_\varepsilon)\varphi_2(x) + F_{p_1}(x,y_\varepsilon,y'_\varepsilon)\varphi'_1(x) + F_{p_2}(x,y_\varepsilon,y'_\varepsilon)\varphi'_2(x) + ...$ 
 
