@@ -45,7 +45,7 @@ El valor del mínimo es el número $\mathcal{F}[y] \in \mathbb{R}$. En esta circ
 
 Diremos que $y_0 \in D$ es **mínimo local** si existe algún entorno $\mathcal{U}_{y_0}$ de $y_0$ tal que $\mathcal{F}[y_0] \le \mathcal{F}[y]\ \ \forall y \in \mathcal{U}_{y_0}$.
 
-Si $D=C^k(I)$, podemos definir $B_{\varepsilon}(\tilde y) = \{ y \in C^k(I)\ :\ d_k(y,\tilde y) < \varepsilon \}$. En esta situación, $y_0 \in D$ es un mínimo local si $\exist \varepsilon > 0$ tal que $\mathcal{F}[y_0] \le \mathcal{F}[y]\ \forall y \in B_{\varepsilon}(y_0)$.
+Si $D=C^k(I)$, podemos definir $B_{\varepsilon}(\tilde y) = \{ y \in C^k(I)\ :\ d_k(y,\tilde y) < \varepsilon \}$. En esta situación, $y_0 \in D$ es un mínimo local si $\exists \varepsilon > 0$ tal que $\mathcal{F}[y_0] \le \mathcal{F}[y]\ \forall y \in B_{\varepsilon}(y_0)$.
 
 ---
 
@@ -72,7 +72,7 @@ $$F_y(x, y(x), y'(x)) - \frac{d}{d x}[F_p(x,y(x),y'(x))]=0$$
 
 ### Demostración
 
-Supongamos que $y$ es un mínimo local. Entonces $\exist R>0$ tal que $\mathcal{F}[y]\le\mathcal{F}[\tilde y]\ \ \forall \tilde y \in B_R(y)$
+Supongamos que $y$ es un mínimo local. Entonces $\exists R>0$ tal que $\mathcal{F}[y]\le\mathcal{F}[\tilde y]\ \ \forall \tilde y \in B_R(y)$
  
 Dado $\varepsilon \in \mathbb{R}$, podemos introducir una perturbación/variación
 $$y_{\varepsilon}:=y+\varepsilon \varphi $$
@@ -82,7 +82,7 @@ con $C_0(I):=\{ y \in C(I)\ :\ y(x_0)=y(x_1)=0 \}$
 Entonces tenemos:
 $$||y_{\varepsilon}-y||_{C'(I)} = ||\varepsilon\varphi||_{C'(I)} = |\varepsilon| ||\varphi||_{C'(I)}$$
 
-Fijada $\varphi$, $\exist {\varepsilon}_0$ con $0<{\varepsilon}_0<\frac{R}{||\varphi||_{C'(I)}}$ de forma que $y_{\varepsilon}\in B_R(y)\ \ \forall \varepsilon\in (-{\varepsilon}_0, {\varepsilon}_0)$.
+Fijada $\varphi$, $\exists {\varepsilon}_0$ con $0<{\varepsilon}_0<\frac{R}{||\varphi||_{C'(I)}}$ de forma que $y_{\varepsilon}\in B_R(y)\ \ \forall \varepsilon\in (-{\varepsilon}_0, {\varepsilon}_0)$.
 
 La aplicación $\varepsilon \mapsto \int_{x_0}^{x_1} F(x,\ y_{\varepsilon},\ y'_{\varepsilon})\ dx$ tiene un mínimo local en $\varepsilon = 0$.
 
@@ -113,7 +113,7 @@ entonces $f(x)=0$ $\forall x\in I$.
 
 ### Demostración (por contradicción)
 
-Supongamos que $\exist\bar{x}\in\mathring{I}$ tal que $f(\bar{x})>0$.
+Supongamos que $\exists \bar{x}\in\mathring{I}$ tal que $f(\bar{x})>0$.
 
 Como $f\in C(I)$, existe un entorno $(x_-,x_+)\subset I$ tal que $f(x)>0$ $\ \forall x\in(x_-,x_+)$.
 
