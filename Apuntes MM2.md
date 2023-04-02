@@ -422,22 +422,177 @@ Coordenadas de Jacobi:
 
 Como $Y''=0$ el centro de masas se desplaza linealmente en el tiempo: $Y(t) = \vec{v_1}t+\vec{v_2}$
 
-$\frac{d}{dt}(y \land y) = \frac{d}{dt} (y \times y') = 0 \Longrightarrow$ 
+$\frac{d}{dt}(y \land y) = \frac{d}{dt} (y \times y') = 0 \Longrightarrow$ el momento angular se conserva, las trayectorias se mueven en un plano.
 
+# Lema Fundamental del Cálculo de Variaciones
 
+Sea $\Omega \in \mathbb{R}$ un dominio. Sea $f\in C(\Omega)$.
 
+Si $\int_\Omega f \varphi\ dx = 0$ para cualquier $\varphi\in C_0(\Omega)$, entonces $f=0$ en $\Omega$
 
+Función de prueba (*bump function*):
 
+$$\varphi(x)= \left \{ \begin{array}{ccc}
+    \frac{1}{|x|^2-1} &   si  & |x|<1 \\
+    0 &  si & |x| \ge 1
+    \end{array}
+\right \}$$
 
+En $B(0,1)$ es de clase $C^\infty$.
+
+Pongamos $F = F(x,y,u,P_x,P_y)$ y consideremos $u=u(x,y)$ con $P_x = \frac{\partial}{\partial x} u(x,y)$ y con $P_y = \frac{\partial}{\partial y} u(x,y)$
+
+$$\mathcal{F}[u] = \int_\Omega F(x,y,u(x,y), \frac{\partial}{\partial x} u(x,y),\frac{\partial}{\partial y} u(x,y))\ dx\ dy$$
+
+Definido sobre $D = \{ u \in C^1(\Omega) : u\vert_{\partial\Omega}=\varphi(x,y) \}$ con $\varphi : \Omega\rightarrow\Omega$ dada.
+
+### Teorema
+
+Supongamos que $F\in C^2(\Omega\times\mathbb{R}^3)$. Entonces todo extremo relativo $u\in C^2(\Omega) \cap D$ de $\mathcal{F}$ satisface:
+
+$$F_u(-) - \frac{d}{dx} [ F_{P_x}(-)] - \frac{d}{dy} [ F_{P_y}(-)]$$
 
 ---
 
 > 13-03-2023
 
+Demostración del Teorema:
+
+$u_\varepsilon = u_\varepsilon(x,y) = u(x,y) + \varepsilon \varphi (x,y)$, con $\varphi\in C_0^1(\Omega)\Rightarrow u_\varepsilon \in D$
+
+Fijado $\varphi$, existe un rango $(-\varepsilon_0, \varepsilon_0)$ tal que $\varepsilon\mapsto\mathcal{F}[u_\varepsilon]$ tiene un extremo local para $\varepsilon=0$.
+
+Por tanto, $\frac{d}{d\varepsilon}(\mathcal{F}[u_\varepsilon])\vert_{\varepsilon=0} = 0$.
+
+$$\frac{d}{d\varepsilon}(\mathcal{F}[u_\varepsilon])\vert_{\varepsilon=0} = (\int_\Omega \frac{d}{d\varepsilon}(F(x,y,u_\varepsilon,\frac{\partial}{\partial x} u_\varepsilon,\frac{\partial}{\partial y} u_\varepsilon))\ dx\ dy)\vert_{\varepsilon=0} = $$
+
+$$= (\int_\Omega (F_u(-\space_\varepsilon)\varphi+F_{P_x}(-\space_\varepsilon)\frac{\partial\varphi}{\partial x}+F_{P_y}(-\space_\varepsilon)\frac{\partial\varphi}{\partial y})\ dx\ dy)\vert_{\varepsilon=0 }$$
+
+$$= \int_\Omega (F_u(-)\varphi+F_{P_x}(-)\frac{\partial\varphi}{\partial x}+F_{P_y}(-)\frac{\partial\varphi}{\partial y})\ dx\ dy$$
+
+Con esto queremos llegar a que si $\int_\Omega f\varphi\ dx = 0,\ \forall \varphi\in C_0^1(\Omega) \Rightarrow f=0$
+
+Para obtener una integral de la forma deseada para aplicar esto integramos por partes.
+
+$$0 = \int_\Omega (F_u - \frac{d}{dx}F_{Px} - \frac{d}{dy}F_{Py})\varphi(x,y)\ dx\ dy$$
+
+De ahí tenemos que:
+
+$$F_u(-) - \frac{d}{dx}F_{Px}(-) - \frac{d}{dy}F_{Py}(-) = 0,\ \forall(x,y)\in\Omega$$
+
+$\square$
+
+Ejemplo 1: Superficie descrita como grafo.
+
+$(x,y)\mapsto(x,y,u(x,y))$, con $(x,y)\in\Omega\subset\mathbb{R}^2$ un dominio.
+
+Borde fijado: $u\vert_{\partial\Omega} = \varphi(x,y)\in\mathbb{R}$ dada.
+
+Área asociada para $D=\{ u\in C^1(\Omega) :  u\vert_{\partial\Omega} = \varphi \}$
+
+$$\mathcal{A}[u]=\int_\Omega \sqrt{1+u_x^2+u_y^2}\ dx\ dy$$
+
+En este caso $F(x,y,u,P_x,P_y)=\sqrt{1+P_x^2+P_y^2}$. Y calculamos la ecuación de Euler-Lagrange que viene dada por:
+
+$$F_u - \frac{\partial}{\partial x}(F_{P_x}) - \frac{\partial}{\partial y}(F_{P_y}) = 0$$
+
+Y cada una de esas tres partes se corresponde con:
+- $F_u=0$
+- $F_{P_x} = \frac{P_x}{\sqrt{1+P_x^2+P_y^2}}$
+- $F_{P_y} = \frac{P_y}{\sqrt{1+P_x^2+P_y^2}}$
+
+Entonces la ecuación de Euler-Lagrange queda:
+
+$$\frac{\partial}{\partial x}\left(\frac{\frac{\partial}{\partial x}u}{\sqrt{1+(\frac{\partial}{\partial x}u)^2+(\frac{\partial}{\partial y}u)^2}}\right) +\frac{\partial}{\partial y}\left(\frac{\frac{\partial}{\partial y}u}{\sqrt{1+(\frac{\partial}{\partial x}u)^2+(\frac{\partial}{\partial y}u)^2}}\right) = 0\ \ \ \ \forall (x,y)\in\Omega$$
+
+Esta ecuación también la podemos escribir así:
+
+$$div\left( \frac{\nabla u}{\sqrt{1+|\nabla u|^2}} \right) = 0$$
+
+que es la ecuación de las superficies mínimas (no vamos a resolver esta ecuación).
+
+> ### Divergencia de una función
+> $$\begin{array}{rcl}
+> F:\mathbb{R}^N & \longrightarrow & \mathbb{R}^N \\
+> (x_1, ..., x_n) & \longmapsto & F=(F_1(x_1, ..., x_n),...,F_N (x_1, ..., x_n))
+> \end{array}$$
+> $div F = \frac{\partial}{\partial x_1}F_1 + ... + \frac{\partial}{\partial x_N}F_N$
+
+La ecuación de Euler-Lagrange también puede escribirse como $F_N - div_x(F_p) = 0$
+
+Si $|\nabla u| \simeq 0 \Rightarrow div\left( \frac{\nabla u}{\sqrt{1+|\nabla u|^2}} \right) \simeq div(\nabla u) = \Delta u$ (Laplaciano de $u$)
+
+$\Delta u = 0$ (Ecuación de Laplace)
+
+Ejemplo 2:
+
+Sea $\Omega\in\mathbb{R}$ dominio acotado que representa la membrana en reposo.
+
+Sea $u_[o,\tau]\times\Omega\rightarrow\mathbb{R}$ desplazamiento vertical bajo perturbaciones.
+
+Consideramos la densidad de masa de la membrana $\rho(x)>0,\ x\in\Omega$
+
+Sea $F:\Omega\rightarrow\mathbb{R}$ una fuerza vertical aplicada
+
+Consideramos la tensión de la membrana $\tau(x)$, $x\in\Omega$, que tiende a restituirla al equilibrio. Trabajo proporcional a la variación de área.
+
+El medio opone una resistencia al movimiento proporcional a la magnitud del desplazamiento (constante).
+
+Trabajamos en $D=\{ u\in C^1([0,\tau]\times\Omega) : u(t,\cdot)\vert_{\partial\Omega} \}$
+
+$$E_{kin} = \int_\Omega \frac{\rho(x,y)}{2}\cdot\left(\frac{\partial u}{\partial t}\right)^2\ dx\ dy\ \ \ \ \ \forall (x,y)\in\Omega$$
+
+$$E_{pot} = \int_\Omega dx\ dy \int_O^{u(t,(x,y))} (F(x,y) - a(x,y)s\ ds) + \tau(x,y)(\sqrt{1+|\nabla u|^2}-1)$$
 
 ---
 
 > 14-03-2023
+
+$E_{kin} = \int_\Omega \frac{\rho(x)}{2}\cdot\left(\frac{\partial u}{\partial t}\right)^2\ dx\ \ \ \ \ \forall (x,y)\in\Omega$
+
+$E_{pot} = \int_\Omega \left( \int_O^{u(t,x)} (F(x) - a(x)s\ ds) + \tau(x)(\sqrt{1+|\nabla u|^2}) \right)\ dx$
+
+Con $\nabla u = \left( \frac{\partial}{\partial x} u,\frac{\partial}{\partial y}u \right)$
+
+Consideramos el siguiente funcional:
+
+$$\mathcal{A}[u] = \int_O^T E_{kin}-E_{pot}\ dt$$
+
+Vemos cual es el integrando:
+
+$F(t,x,y,u,P_t,P_x,P_y) = \frac{\rho(x,y)}{2}P_t^2 - f(x,y)u + \frac{a(x,y)}{2}u^2-\tau (x,y)(\sqrt{1+P_x^2+P_y^2} - 1)$
+
+$\Rightarrow \mathcal{A}[u] = \int_0^T \int_\Omega F\ dx\ dt$
+
+Calculamos la ecuación de Euler-Lagrange, que viene dada por:
+
+$$F_u - div_x(F_p) = 0$$
+
+$$F_u - \frac{\partial}{\partial t}(F_{P_t}) - \frac{\partial}{\partial x}(F_{P_x}) - \frac{\partial}{\partial y}(F_{P_y}) = 0$$
+
+Entonces la ecuación de Euler-Lagrange de la membrana queda como:
+
+$$-f + au - \frac{\partial}{\partial t}(\rho \frac{\partial}{\partial t} u)+\frac{\partial}{\partial x}(\frac{\tau \frac{\partial}{\partial x}u}{\sqrt{1+|\nabla u|^2}})+\frac{\partial}{\partial y}(\frac{\tau \frac{\partial}{\partial y_0}u}{\sqrt{1+|\nabla u|^2}}) = 0$$
+
+Para esto no podemos calcular las soluciones.
+
+Pongamos que $\rho$, $\tau$ y $a$ son  constantes.
+
+NOTA: VER EL MODELO/PROBLEMA DE LA MEMBRANA ELÁSTICA
+
+# Multiplicadores de Lagrange
+
+Ahora queremos optimizar con algunas ligaduras.
+
+Sean $\Omega\subset\mathbb{R}^d$ abierto y $F:\Omega\rightarrow\mathbb{R}$.
+
+Sean las $m < d$ ligaduras $\Phi_i:\Omega\rightarrow\mathbb{R}$, $i=1,...,m$.
+
+Condición de transversalidad: 
+
+
+
+
 
 
 ---
