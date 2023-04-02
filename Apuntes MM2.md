@@ -16,9 +16,9 @@ Si queremos tutorías que se lo avisemos con algo de tiempo para que se organice
 
 ---
 
-# Tema 1
-
 > 21-02-2023
+
+# Tema 1
 
 **Principio de mínima acción en mecánica**: Las trayectorias de una partícula con masa sujeta a la acción de un potencial son los puntos críticos del funcional acción asociado.
 
@@ -132,6 +132,8 @@ Para esa $\varphi$, tenemos $\int_I f(x)\varphi(x)\ dx = \int_{x_-}^{x_+}f(x)\va
 
 ¡Contradicción! $\ \ \square$
 
+---
+
 > 23-02-2023
 
 ## Geodésicas en el plano
@@ -218,6 +220,8 @@ Ahora vemos de nuevo el problema pero esta vez sin condiciones en los extremos (
 
 Por lo tanto, cualquier recta horizontal es un extremo relativo.
 
+---
+
 > 27-02-2023
 
 Al funcional $\mathcal{F}[y]=\int_{x_0}^{x_1}F(x,y(x),y'(x))\ dx$ podríamos hacerlo depender de otras cosas como $y''(x)$ y, siguiendo los mismos pasos de las demostraciones de la clase anterior, no sería un problema.
@@ -259,9 +263,13 @@ $F(y,p) = y^2(1-p)$ no es convexa, pero podemos hacer un truquito:
 
 $\mathcal{F}[y] = \int_{x_0}^{x_1} (y(x))^2\ dx - \int_{x_0}^{x_1} (y(x))^2y'(x)\ dx = \int_{x_0}^{x_1} (y(x))^2\ dx - \frac{1}{3} \int_{x_0}^{x_1} \frac{d}{dx} (y(x))^3\ dx = \int_{x_0}^{x_1} (y(x))^2\ dx - \frac{1}{3}((y(x_1))^3-(y(x_0))^3) = \int_{x_0}^{x_1} (y(x))^2\ dx$
 
+---
+
 > 1-03-2023
 
 
+
+---
 
 > 6-03-2023
 
@@ -319,32 +327,165 @@ Multiplicando la ecución de Euler-Lagrange por $y'$, resulta:
 
 $$\frac{d}{dx}\left[  F(y,y') - y' F_p(y, y') \right] = 0$$
 
+Por tanto, vemos que $F(y(x),y'(x))-y'(x)F_p(y(x),y'(x)) = C \in \mathbb{R}$
 
+Ejemplo:
 
+$F(y,p) = \sqrt{\frac{1+p^2}{-y}}$
 
+$\sqrt{\frac{1+(y')^2}{-y}} = \frac{(y')^2}{\sqrt{-y}\sqrt{1+(y')^2}} = C \in \mathbb{R}$
 
+Se puede obtener $y(x)=\frac{k_1}{1+(y'(x))^2}$ para $k_1<0$.
 
+$$\tilde{y}(t) = y(x(t)) = \frac{k_1}{1+(\frac{d}{dx}y(x(t)))^2} = \frac{k_1}{1+\left(\frac{\frac{d}{dt}\tilde{y}(t)}{\frac{d}{dt}x(t)}\right)^2}$$
 
+$F_y - \frac{d}{dx} F_p = 0$
 
+$F_y - F_{py} y' - F_{pp} y'' = 0$
+
+$x \mapsto (x,y(x))$
+
+$t \mapsto (x(t), \tilde{y}(t))$
+
+$\tilde{y}(t) = y(x(t)) \Longrightarrow \frac{d}{dt}\tilde{y}(t) = \frac{d}{dx} y(x(t)) \cdot \frac{d}{dt}x(t)$
+
+Escogemos:
+
+$$\frac{\frac{d}{dt}\tilde{y}(t)}{\frac{d}{dt}x(t)} = - cotan(t)$$
+
+Resulta $\tilde{y}(t) = k_1 sen^2(t) = \frac{k_1}{2}(1-cos(2t))$
+
+$$\frac{2\cdot k_1\cdot sen(t)\cdot cos(t)}{\frac{d}{dt}x(t)} = - cotan(t)$$
+
+$$rx(t) = x(0) + \int_0^t \frac{2\cdot k_1\cdot sen(s)\cdot cos(s)}{- cotan(s)}\ ds = \int_0^t -2\cdot k_1\cdot sen^2(s)\ ds =$$
+
+$$= -k_1 \cdot t + \frac{k_1}{2}sen(2t)$$
+
+---
 
 > 7-03-2023
 
+
+---
+
 > 8-03-2023
+
+
+---
 
 > 9-03-2023
 
+# Problema de los N cuerpos en gravitación
+
+Consideramos $N$ partículas con masa $m_i>0$ y trayectorias $x_i : [t_0, t_1]\rightarrow\mathbb{R}^3$ con $i=1,...,N$.
+
+Consideramos el funcional acción
+
+$$\mathcal{A} = \int_{t_0}^{t_1} E_{kin} - E_{pot}\ dt$$
+
+donde:
+- $E_{kin} = \sum \frac{m_i}{2} |x_i'(t)|^2$
+- $E_{pot} = -G \sum_{1\le i \lt j \le N} \frac{m_i \cdot m_j}{|x_i(t) - x_j(t)|}$
+
+Las escuaciones de Euler-Lagrange para $i=1,...,N$ serían:
+
+$$-G \sum_{\substack{j>1 \\ j\ne i}} \frac{m_i \cdot m_j}{|x_i(t) - x_j(t)|^3} (x_i(t) - x_j(t)) -  m_i x_i''(t) = 0$$
+
+En general es muy complicado decir algo de lo que pasa con estas ecuaciones.
+
+## Caso de dos cuerpos ($N=2$)
+
+$E_{tot} = E_{kin}+E_{pot} = \frac{m_1}{2} |x_1'(t)|^2 + \frac{m_2}{2} |x_2'(t)|^2 -G \frac{m_1 \cdot m_2}{|x_1(t) - x_2(t)|}$
+
+Sabemos que la energía total se conserva, por lo que $\frac{d}{dt}E_{tot} = 0$
+
+Con la energía total hay 3 casos posibles:
+1. $E_{tot} > 0 \longrightarrow$ Caso hiperbólico
+2. $E_{tot} = 0 \longrightarrow$ Caso parabólico
+3. $E_{tot} < 0 \longrightarrow$ Caso elíptico
+
+En los casos 1 y 2 el sistema se desacopla (las partículas cada vez están más separadas). En el caso 3 el sistema se queda ligado y las órbitas son elípticas.
+
+Las ecuaciones de Euler-Lagrange son:
+
+$m_1 x_1''(t) = -G \frac{m_1 \cdot m_2}{|x_1(t) - x_2(t)|^3} (x_1(t) - x_2(t))$
+
+
+$m_1 x_1''(t) = -G \frac{m_1 \cdot m_2}{|x_1(t) - x_2(t)|^3} (x_2(t) - x_1(t))$
+
+Coordenadas de Jacobi:
+
+- Centro de masas: $Y = \frac{m_1x_1+m_2x_2}{m_1+m_2} \Rightarrow Y''=0$
+- $y = x_2-x_1 \Rightarrow y'' = -G \frac{m_1m_2}{|y|^3}y$
+
+Como $Y''=0$ el centro de masas se desplaza linealmente en el tiempo: $Y(t) = \vec{v_1}t+\vec{v_2}$
+
+$\frac{d}{dt}(y \land y) = \frac{d}{dt} (y \times y') = 0 \Longrightarrow$ 
+
+
+
+
+
+
+
+---
+
 > 13-03-2023
+
+
+---
 
 > 14-03-2023
 
+
+---
+
 > 15-03-2023
+
+
+---
 
 > 16-03-2023
 
+
+---
+
 > 20-03-2023
+
+
+---
 
 > 21-03-2023
 
+
+---
+
 > 22-03-2023
 
+
+---
+
 > 23-03-2023
+
+
+---
+
+> 27-03-2023
+
+
+---
+
+> 28-03-2023
+
+
+---
+
+> 29-03-2023
+
+
+---
+
+> 30-03-2023
+
+
+---
