@@ -1,3 +1,5 @@
+> Apuntes tomados en colaboración con Andrés Quintana
+
 # Metodología Docente
 
 Modelo de evaluación:
